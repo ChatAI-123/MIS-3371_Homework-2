@@ -273,37 +273,41 @@ function validateConfirmPassword() {
 
 // Review Input Function
 function reviewInput() {
-    var formcontent = document.getElementById("signup");
-    var formoutput = "<table class='output'><th colspan='100'>Review Your Information:</th>";
+    var formContent = document.getElementById("signup");
+    var formOutput = "<table class='output'><th colspan='100'>Review Your Information:</th>";
     
     if (document.getElementById("showInput").innerHTML === "") {
-        for (let i = 0; i < formcontent.length; i++) {
-            if (formcontent.elements[i].value !== "") {
-                switch (formcontent.elements[i].type) {
+        for (let i = 0; i < formContent.length; i++) {
+            let dataType = formContent.elements[i].type;
+            let attribute = formContent.elements[i].name;
+            let value = formContent.elements[i].value;
+
+            if (formContent.elements[i].value !== "") {
+                switch (dataType) {
                     case "button":  // Skip button elements
                     case "submit":  // Skip submit elements
                     case "reset":   // Skip reset elements
                         break;
                     case "checkbox":
-                        if (formcontent.elements[i].checked) {
-                            formoutput += `<tr><td class='td1 td1Review'>${formcontent.elements[i].name}</td><td>&#x2713;</td></tr>`;
+                        if (formContent.elements[i].checked) {
+                            formOutput += `<tr><td class='td1 td1Review'>${attribute}</td><td>&#x2713;</td></tr>`;
                         }
                         break;
                     case "radio":
-                        if (formcontent.elements[i].checked) {
-                            formoutput += `<tr><td class='td1 td1Review'>${formcontent.elements[i].name}</td><td>${formcontent.elements[i].value}</td></tr>`;
+                        if (formContent.elements[i].checked) {
+                            formOutput += `<tr><td class='td1 td1Review'>${attribute}</td><td>${value}</td></tr>`;
                         }
                         break;
                     case "password":
-                        formoutput += `<tr><td class='td1 td1Review'>${formcontent.elements[i].name}</td><td>********</td></tr>`;
+                        formOutput += `<tr><td class='td1 td1Review'>${attribute}</td><td>********</td></tr>`;
                         break;
                     default:
-                        formoutput += `<tr><td class='td1 td1Review'>${formcontent.elements[i].name}</td><td>${formcontent.elements[i].value}</td></tr>`;
+                        formOutput += `<tr><td class='td1 td1Review'>${attribute}</td><td>${value}</td></tr>`;
                 }
             }
         }
-        formoutput += "</table>";
-        document.getElementById("showInput").innerHTML = formoutput;
+        formOutput += "</table>";
+        document.getElementById("showInput").innerHTML = formOutput;
     } else {
         document.getElementById("showInput").innerHTML = "";
     }
