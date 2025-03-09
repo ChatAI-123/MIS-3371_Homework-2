@@ -2,9 +2,10 @@
 Program Name: main.js
 Name: Andres Cortes
 Date Created: 02/05/2025
-Date Last Edited: 03/08/2025
-Version: 2.2
+Date Last Edited: 03/09/2025
+Version: 2.1
 Description: Homework 2 JS
+Credits: The skeleton of this JS code is from MISSO. No public link to cite.
 */
 
 // Dynamic Date
@@ -37,6 +38,20 @@ function validateFname() {
         return false;
     }
     document.getElementById("fname-error").innerHTML = "";
+    return true;
+}
+
+// Middle Inital Validation
+function validateMI() {
+    const mini = document.getElementById("middleInitial").value;
+    let regex = /^[a-zA-Z]$/;
+    
+    if (mini.length > 0 && !regex.test(mini)) {
+        document.getElementById("mini-error").innerHTML = 
+        "Middle initial must be a single letter";
+        return false;
+    }
+    document.getElementById("mini-error").innerHTML = "";
     return true;
 }
 
@@ -269,6 +284,23 @@ function validateConfirmPassword() {
     }
     document.getElementById("confirm-password-error").innerHTML = "";
     return true;
+}
+
+// Error Check Function
+function errorCheck() {
+    validateFname()
+    validateMI()
+    validateLname()
+    validateDob()
+    validateSsn()
+    validateAddress1()
+    validateCity()
+    validateZcode()
+    validateEmail()
+    validatePhone()
+    validateUsername()
+    validatePassword()
+    validateConfirmPassword()
 }
 
 // Review Input Function

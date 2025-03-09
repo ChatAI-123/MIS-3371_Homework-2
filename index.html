@@ -3,8 +3,8 @@
     Program Name: index.html
     Name: Andres Cortes
     Date Created: 02/05/2025
-    Date Last Edited: 03/08/2025
-    Version: 2.2
+    Date Last Edited: 03/09/2025
+    Version: 2.1
     Description: Homework 2 HTML
     Credits: The skeleton of this HTML code is from MISSO. No public link to cite.
     -->
@@ -76,7 +76,8 @@
                                 maxlength="1"
                                 placeholder="M"
                                 pattern="[a-zA-Z']{0,1}"
-                                title="Enter a single letter for middle initial">
+                                title="Enter a single letter for middle initial"
+                                oninput="validateMI()">
                             <span class="error" id="mini-error"></span>
                         </td>
                     </tr>
@@ -498,7 +499,7 @@
                     <!-- Section 5 END | Acccount Credentials -->
                 </table>
                 <div  class="button-container">
-                    <input type="submit" name="submit">
+                    <input type="submit" name="submit" onclick="errorCheck()">
                     <input type="button" name="Review" id="review" value="Review" onclick="reviewInput()">
                     <input type="reset" name="reset">
                 </div>
