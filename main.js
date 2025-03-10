@@ -316,9 +316,9 @@ function reviewInput() {
 
             if (formContent.elements[i].value !== "") {
                 switch (dataType) {
-                    case "button":  // Skip button elements
-                    case "submit":  // Skip submit elements
-                    case "reset":   // Skip reset elements
+                    case "button":
+                    case "submit":
+                    case "reset":
                         break;
                     case "checkbox":
                         if (formContent.elements[i].checked) {
